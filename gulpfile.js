@@ -21,7 +21,10 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
+    .pipe(rev())
     .pipe(gulp.dest('.tmp/styles'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('.tmp/rev/styles'))
     .pipe(reload({stream: true}));
 });
 
@@ -34,12 +37,26 @@ gulp.task('scripts', () => {
     .pipe(rev())
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(rev.manifest())
-    .pipe(gulp.dest('.tmp/scripts/rev'))
+    .pipe(gulp.dest('.tmp/rev/scripts'))
     .pipe(reload({stream: true}));
 });
 
-gulp.task('rev-scripts',['scripts'], function(){
-  return gulp.src(['./.tmp/scripts/rev/**/*.json', './app/*.html'])
+// gulp.task('rev',['styles'], function(){
+//   return gulp.src(['./.tmp/rev/**/*.json', './.tmp/*.html'])
+//     .pipe(revCollector({ replaceReved: true }))
+//     .pipe(gulp.dest('./.tmp')) 
+//     .pipe(reload({stream:true}));
+// });
+
+// gulp.task('rev-scripts',['scripts'], function(){
+//   return gulp.src(['./.tmp/rev/**/*.json', './.tmp/*.html'])
+//     .pipe(revCollector({ replaceReved: true }))
+//     .pipe(gulp.dest('./.tmp')) 
+//     .pipe(reload({stream:true}));
+// });
+
+gulp.task('rev',['scripts', 'styles'], function(){
+  return gulp.src(['./.tmp/rev/**/*.json', './app/*.html'])
     .pipe(revCollector({ replaceReved: true }))
     .pipe(gulp.dest('./.tmp')) 
     .pipe(reload({stream:true}));
@@ -69,7 +86,7 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec/**/*.js'));
 });
 
-gulp.task('html', ['styles', 'rev-scripts'], () => {
+gulp.task('html', ['rev'], () => {
   return gulp.src('.tmp/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
@@ -108,7 +125,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'rev-scripts', 'fonts'], () => {
+gulp.task('serve', ['rev', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -126,8 +143,8 @@ gulp.task('serve', ['styles', 'rev-scripts', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['rev-scripts']);
+  gulp.watch('app/styles/**/*.scss', ['rev']);
+  gulp.watch('app/scripts/**/*.js', ['rev']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
@@ -142,7 +159,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['rev-scripts'], () => {
+gulp.task('serve:test', ['rev'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -156,7 +173,7 @@ gulp.task('serve:test', ['rev-scripts'], () => {
     }
   });
 
-  gulp.watch('app/scripts/**/*.js', ['rev-scripts']);
+  gulp.watch('app/scripts/**/*.js', ['rev']);
   gulp.watch('test/spec/**/*.js').on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
