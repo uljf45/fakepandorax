@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+	<link href="apple-touch-icon" rel="apple-touch-icon-precomposed">
+	<link href="favicon.ico" rel="Shortcut Icon" type="image/x-icon">
+	<script>!function(N,M){function L(){var a=I.getBoundingClientRect().width;a/F>540&&(a=540*F);var d=a/10;I.style.fontSize=d+"px",D.rem=N.rem=d}var K,J=N.document,I=J.documentElement,H=J.querySelector('meta[name="viewport"]'),G=J.querySelector('meta[name="flexible"]'),F=0,E=0,D=M.flexible||(M.flexible={});if(H){console.warn("将根据已有的meta标签来设置缩放比例");var C=H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);C&&(E=parseFloat(C[1]),F=parseInt(1/E))}else{if(G){var B=G.getAttribute("content");if(B){var A=B.match(/initial\-dpr=([\d\.]+)/),z=B.match(/maximum\-dpr=([\d\.]+)/);A&&(F=parseFloat(A[1]),E=parseFloat((1/F).toFixed(2))),z&&(F=parseFloat(z[1]),E=parseFloat((1/F).toFixed(2)))}}}if(!F&&!E){var y=N.navigator.userAgent,x=(!!y.match(/android/gi),!!y.match(/iphone/gi)),w=x&&!!y.match(/OS 9_3/),v=N.devicePixelRatio;F=x&&!w?v>=3&&(!F||F>=3)?3:v>=2&&(!F||F>=2)?2:1:1,E=1/F}if(I.setAttribute("data-dpr",F),!H){if(H=J.createElement("meta"),H.setAttribute("name","viewport"),H.setAttribute("content","initial-scale="+E+", maximum-scale="+E+", minimum-scale="+E+", user-scalable=no"),I.firstElementChild){I.firstElementChild.appendChild(H)}else{var u=J.createElement("div");u.appendChild(H),J.write(u.innerHTML)}}N.addEventListener("resize",function(){clearTimeout(K),K=setTimeout(L,300)},!1),N.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(K),K=setTimeout(L,300))},!1),"complete"===J.readyState?J.body.style.fontSize=12*F+"px":J.addEventListener("DOMContentLoaded",function(){J.body.style.fontSize=12*F+"px"},!1),L(),D.dpr=N.dpr=F,D.refreshRem=L,D.rem2px=function(d){var c=parseFloat(d)*this.rem;return"string"==typeof d&&d.match(/rem$/)&&(c+="px"),c},D.px2rem=function(d){var c=parseFloat(d)/this.rem;return"string"==typeof d&&d.match(/px$/)&&(c+="rem"),c}}(window,window.lib||(window.lib={}));</script>
+      <!-- build:css styles/index.css -->
+	<link rel="stylesheet" href="styles/index.css">
+     <!-- endbuild -->
+	<title>仿潘多拉互动wap首页</title>
+</head>
+<body>
+	<div id="loading" class="load-box">
+		<div class="sonic-wrapper"></div>
+	</div>
+
+    <!-- build:js scripts/sonic.js -->
+    <script src="scripts/sonic.js"></script>
+    <!-- endbuild -->
+    <script>
+    	var loader =
+    	{
+    		width: 100 * dpr,
+    		height: 100 * dpr,
+
+    		stepsPerFrame: 4,
+    		trailLength: 1,
+    		pointDistance: .01,
+    		fps: 25,
+
+    		fillColor: '#ffffff',
+
+    		setup: function() {
+    			this._.lineWidth = 10;
+    		},
+
+    		step: function(point, i, f) {
+    			var progress = point.progress,
+    			degAngle = 360 * progress,
+    			angle = Math.PI/180 * degAngle  ,
+    			angleB = Math.PI/180 * (degAngle - 180),
+    			size = i*5;
+
+    			this._.fillRect(
+    				(Math.cos(angle) * 25 + (50-size/2))*dpr,
+    				(Math.sin(angle) * 15 + (50-size/2))*dpr,
+    				size*dpr,
+    				size*dpr
+    				);
+
+    			this._.fillStyle = '#ffffff';
+
+    			this._.fillRect(
+    				(Math.cos(angleB) * 15 + (50-size/2))*dpr,
+    				(Math.sin(angleB) * 25 + (50-size/2))*dpr,
+    				size*dpr,
+    				size*dpr
+    				);
+
+    			if (point.progress == 1) {
+    				this._.globalAlpha = f < .5 ? 1-f : f;
+
+    				this._.fillStyle = '#EEE';
+
+    				this._.beginPath();
+    				this._.arc(50*dpr, 50*dpr, 5*dpr, 0, 360, 0);
+    				this._.closePath();
+    				this._.fill();
+    			}
+    		},
+    		path: [
+    		['line', 40, 10, 60, 90]
+    		]
+    	};
+
+    	var a, container = document.getElementById('loading');
+    	a = new Sonic(loader);
+    	container.appendChild(a.canvas);
+    	a.play();	
+    </script>
+</body>
+</html>
