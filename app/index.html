@@ -1,23 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta content="yes" name="apple-mobile-web-app-capable">
-	<meta content="yes" name="apple-touch-fullscreen">
-	<meta content="telephone=no,email=no" name="format-detection">
-	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
-	<link href="apple-touch-icon" rel="apple-touch-icon-precomposed">
-	<link href="favicon.ico" rel="Shortcut Icon" type="image/x-icon">
-	<script>!function(N,M){function L(){var a=I.getBoundingClientRect().width;a/F>540&&(a=540*F);var d=a/10;I.style.fontSize=d+"px",D.rem=N.rem=d}var K,J=N.document,I=J.documentElement,H=J.querySelector('meta[name="viewport"]'),G=J.querySelector('meta[name="flexible"]'),F=0,E=0,D=M.flexible||(M.flexible={});if(H){console.warn("将根据已有的meta标签来设置缩放比例");var C=H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);C&&(E=parseFloat(C[1]),F=parseInt(1/E))}else{if(G){var B=G.getAttribute("content");if(B){var A=B.match(/initial\-dpr=([\d\.]+)/),z=B.match(/maximum\-dpr=([\d\.]+)/);A&&(F=parseFloat(A[1]),E=parseFloat((1/F).toFixed(2))),z&&(F=parseFloat(z[1]),E=parseFloat((1/F).toFixed(2)))}}}if(!F&&!E){var y=N.navigator.userAgent,x=(!!y.match(/android/gi),!!y.match(/iphone/gi)),w=x&&!!y.match(/OS 9_3/),v=N.devicePixelRatio;F=x&&!w?v>=3&&(!F||F>=3)?3:v>=2&&(!F||F>=2)?2:1:1,E=1/F}if(I.setAttribute("data-dpr",F),!H){if(H=J.createElement("meta"),H.setAttribute("name","viewport"),H.setAttribute("content","initial-scale="+E+", maximum-scale="+E+", minimum-scale="+E+", user-scalable=no"),I.firstElementChild){I.firstElementChild.appendChild(H)}else{var u=J.createElement("div");u.appendChild(H),J.write(u.innerHTML)}}N.addEventListener("resize",function(){clearTimeout(K),K=setTimeout(L,300)},!1),N.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(K),K=setTimeout(L,300))},!1),"complete"===J.readyState?J.body.style.fontSize=12*F+"px":J.addEventListener("DOMContentLoaded",function(){J.body.style.fontSize=12*F+"px"},!1),L(),D.dpr=N.dpr=F,D.refreshRem=L,D.rem2px=function(d){var c=parseFloat(d)*this.rem;return"string"==typeof d&&d.match(/rem$/)&&(c+="px"),c},D.px2rem=function(d){var c=parseFloat(d)/this.rem;return"string"==typeof d&&d.match(/px$/)&&(c+="rem"),c}}(window,window.lib||(window.lib={}));</script>
-      <!-- build:css styles/index.css -->
-	<link rel="stylesheet" href="styles/index.css">
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+    <link href="apple-touch-icon" rel="apple-touch-icon-precomposed">
+    <link href="favicon.ico" rel="Shortcut Icon" type="image/x-icon">
+    <script>!function(N,M){function L(){var a=I.getBoundingClientRect().width;a/F>540&&(a=540*F);var d=a/10;I.style.fontSize=d+"px",D.rem=N.rem=d}var K,J=N.document,I=J.documentElement,H=J.querySelector('meta[name="viewport"]'),G=J.querySelector('meta[name="flexible"]'),F=0,E=0,D=M.flexible||(M.flexible={});if(H){console.warn("将根据已有的meta标签来设置缩放比例");var C=H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);C&&(E=parseFloat(C[1]),F=parseInt(1/E))}else{if(G){var B=G.getAttribute("content");if(B){var A=B.match(/initial\-dpr=([\d\.]+)/),z=B.match(/maximum\-dpr=([\d\.]+)/);A&&(F=parseFloat(A[1]),E=parseFloat((1/F).toFixed(2))),z&&(F=parseFloat(z[1]),E=parseFloat((1/F).toFixed(2)))}}}if(!F&&!E){var y=N.navigator.userAgent,x=(!!y.match(/android/gi),!!y.match(/iphone/gi)),w=x&&!!y.match(/OS 9_3/),v=N.devicePixelRatio;F=x&&!w?v>=3&&(!F||F>=3)?3:v>=2&&(!F||F>=2)?2:1:1,E=1/F}if(I.setAttribute("data-dpr",F),!H){if(H=J.createElement("meta"),H.setAttribute("name","viewport"),H.setAttribute("content","initial-scale="+E+", maximum-scale="+E+", minimum-scale="+E+", user-scalable=no"),I.firstElementChild){I.firstElementChild.appendChild(H)}else{var u=J.createElement("div");u.appendChild(H),J.write(u.innerHTML)}}N.addEventListener("resize",function(){clearTimeout(K),K=setTimeout(L,300)},!1),N.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(K),K=setTimeout(L,300))},!1),"complete"===J.readyState?J.body.style.fontSize=12*F+"px":J.addEventListener("DOMContentLoaded",function(){J.body.style.fontSize=12*F+"px"},!1),L(),D.dpr=N.dpr=F,D.refreshRem=L,D.rem2px=function(d){var c=parseFloat(d)*this.rem;return"string"==typeof d&&d.match(/rem$/)&&(c+="px"),c},D.px2rem=function(d){var c=parseFloat(d)/this.rem;return"string"==typeof d&&d.match(/px$/)&&(c+="rem"),c}}(window,window.lib||(window.lib={}));</script>
+    <!-- build:css styles/swiper.css -->
+    <link rel="stylesheet" href="styles/swiper.css">
      <!-- endbuild -->
-	<title>仿潘多拉互动wap首页</title>
+    <!-- build:css styles/index.css --> 
+    <link rel="stylesheet" href="styles/index.css">
+     <!-- endbuild -->
+
+    <title>仿潘多拉互动wap首页</title>
 </head>
 <body>
-	<div id="loading" class="load-box">
-		<div class="sonic-wrapper"></div>
-	</div>
+    <div id="loading" class="load-box" style="display:none;">
+        <div class="sonic-wrapper"></div>
+    </div>
+    <div class="swiper-container swiper-container-top">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide--top"> 
+                <div class="swiper-container swiper-container-v1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"> 
+                            <div class="page">
+                                <div class="down">向上滑动查看更多活动<span class="iconfont icon-down"></span></div>
+                                <div class="list"><img src="images/list/1.png" class="list-img" ></div>
+                                <div class="list"><img src="images/list/2.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/3.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/4.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/5.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/6.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/7.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/8.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/9.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/10.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/11.png"  class="list-img"></div>
+                                <div class="list"><img src="images/list/12.png"  class="list-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide swiper-slide--top">
+                <div class="swiper-container swiper-container-v2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="page">
+                                <img src="images/logo.png" class="logo" >
+                                <img src="images/index.png" class="show-index">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide swiper-slide--top">
+                <div class="swiper-container swiper-container-v3">
+                    <div class="swiper-wrapper">
+                         <div class="swiper-slide">
+                            <div class="page"> 
+                                <img src="images/logo.png" class="logo" >
+                                <div class="contact">
+                                    <p class="title">联系我们</p>
+                                    <div class="contact-details">
+                                            <div class="item">
+                                                <div class="item-key">手机 :</div>
+                                                <div class="item-value">
+                                                    <p>1379XXXXXXXX（广州-杨）</p>
+                                                    <p>1344XXXXXXXX（广州-李）</p>
+                                                    <p>1332XXXXXXXX（广州-黄）</p>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-key">微信 :</div>
+                                                <div class="item-value">
+                                                    <p>youngxxxxx</p>
+                                                    <p>suang</p>
+                                                    <p>poixxxxx_xxx</p>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-key">电话 :</div>
+                                                <div class="item-value">
+                                                    <p>020-221xxxx</p>
+                                                    <p>020-22xxxxx</p> 
+                                                </div>
+                                            </div> 
+                                            <div class="item">
+                                                <p>地址：广州市叉叉区叉叉叉路叉叉号叉叉叉叉A座xxxx（广州叉叉地铁X出口叉转）</p>
+                                            </div>                                                                                       
+                                    </div>
+                                </div> 
+                                <div class="intro">
+                                    <p class="title">潘多拉简介</p>
+                                    <div class="intro-details">
+                                        <div class="item item-v">
+                                            <p class="indent">"潘多拉互动"是昊翼科技开发出来的将品牌传播融入到互动娱乐游戏中的营销平台，
+                                            专注于企业/品牌微信游戏定制开发、品牌微信活动技术供应商，
+                                            拥有丰富的微信游戏定制开发经验和成功案例。</p>
+                                            <p class="indent">目的是通过微信有奖活动提升用户的服务体验，让粉丝能更具主动的分享传播，
+                                            提高企业在运营推广微信等社会化营销平台时粉丝的互动性和主动传播性，强化企业品牌形象，
+                                            有效提升转化率，实现资源最大化利用，现已有10000000+粉丝参与玩乐，让粉丝从此爱上你，
+                                            让移动社交营销变得生动有趣！</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div id="menu" class="swiper-pagination"></div>
+    </div>       
 
     <!-- build:js scripts/sonic.js -->
     <script src="scripts/sonic.js"></script>
@@ -82,6 +183,40 @@
     	a = new Sonic(loader);
     	container.appendChild(a.canvas);
     	a.play();	
+    </script>
+    <!-- build:js scripts/swiper.min.js -->
+    <script src="scripts/swiper.min.js"></script>
+    <!-- endbuild -->
+    <script>  
+        var menuTitle = ["活动案例", "首页", "关于我们"];
+        var swiper = new Swiper('.swiper-container-top',{
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            initialSlide: 1,
+            paginationBulletRender: function (index, className) {
+                return '<span class="' + className + '">' + menuTitle[index] + '</span>';
+            }  
+        });
+        var swiperV1 = new Swiper('.swiper-container-v1', {
+            paginationClickable: true,
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            // scrollbar: '.swiper-scrollbar',
+            freeMode: true
+        });       
+         var swiperV2 = new Swiper('.swiper-container-v2', {
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            // scrollbar: '.swiper-scrollbar',
+            freeMode: true
+        });       
+         var swiperV3 = new Swiper('.swiper-container-v3', {
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            // scrollbar: '.swiper-scrollbar',
+            freeMode: true
+        });
+         var t = document.getElementById
     </script>
 </body>
 </html>
